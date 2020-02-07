@@ -25,14 +25,33 @@ public:
 		int orderInLevel;
 	};
 
+	enum ResultType
+	{
+		TREE_EMPTY,
+		NOTFIND,
+		FIND
+	};
+
+	enum NodeType
+	{
+		Parent,
+		LeftChild,
+		RightChild,
+		LeftSubling,
+		RightSubling
+	};
+
+	enum TraverseType
+	{
+		PreOrder,
+		InOrder,
+		PostOrder,
+		Level
+	};
+
 	struct  OBTree
 	{
-		enum ResultType
-		{
-			TREE_EMPTY,
-			NOTFIND,
-			FIND
-		};
+		
 		TNode TreeSpace[MAX_TREE_SIZE];
 		int EffectiveLength = 0;
 		OBTree()
@@ -62,10 +81,59 @@ public:
 		{
 			return TreeSpace[0].isNULL;
 		}
+
+		bool haveNode(int index,NodeType type)
+		{
+			int goalIndex;
+			switch (type)
+			{
+			case OrderBinaryTree::Parent:
+			{
+				goalIndex = (index + 1) / 2 - 1;
+			}
+				break;
+			case OrderBinaryTree::LeftChild:
+			{
+				goalIndex = 2 * index + 1;
+			}
+				break;
+			case OrderBinaryTree::RightChild:
+			{
+				goalIndex = 2 * index + 2;
+			}
+				break;
+			case OrderBinaryTree::LeftSubling:
+			{
+				if (index % 2)
+					return false;
+				else
+					goalIndex = index - 1;
+			}
+				break;
+			case OrderBinaryTree::RightSubling:
+			{
+				if (index % 2)
+				{
+					goalIndex = index + 1;
+				}
+				else
+					return false;
+			}
+				break;
+			default:
+				break;
+			}
+			if (TreeSpace[goalIndex].isNULL)
+			{
+				return false;
+			}
+			return true;
+		}
 		void clear()
 		{
 			TreeSpace[0].isNULL = true;
 		}
+
 		void getRootNode(TNode& node)
 		{
 			if (TreeSpace[0].isNULL)
@@ -203,6 +271,11 @@ public:
 			TreeSpace[index] = node;
 		}
 	};
+
+	//
+	void orderTraverse(TraverseType type);
+
+	void orderRecurve(TNode* tree, int index,TraverseType type);
 
 	//Test
 	void debug();

@@ -1,11 +1,9 @@
 #include "OrderBinaryTree.h"
-#include "../../Utils/VWDebug.h"
+#include "../../VirtualWorld/Utils/VWDebug.h"
 
 using namespace std;
 
-
 //
-
 void OrderBinaryTree::debug()
 {
 	//Assume Data
@@ -76,10 +74,69 @@ void OrderBinaryTree::debug()
 	int result = _obt.getLeftChildNode(1001,node);
 	result = _obt.getLeftSubling(1001,node);
 	result = _obt.getRightChildNode(9, node);
+	orderTraverse(TraverseType::Level);
+	orderTraverse(TraverseType::PreOrder);
+	orderTraverse(TraverseType::InOrder);
+	orderTraverse(TraverseType::PostOrder);
+}
+
+//Traverse Definition
+void OrderBinaryTree:: orderTraverse(OrderBinaryTree::TraverseType type)
+{
+	if (_obt.isEmpty())
+		return;
+	switch (type)
+	{
+	
+	case OrderBinaryTree::Level:
+	{
+		cout << endl;
+		cout << "LevelOrderTraverse:" << endl;
+		for(int i=0;i<_obt.EffectiveLength;i++)
+		{
+			if (!_obt.TreeSpace[i].isNULL)
+				cout << to_string(_obt.TreeSpace[i].globalOrder)+" ";
+		}
+		return;
+	}
+		break;
+	case OrderBinaryTree::PreOrder:
+		cout << endl;
+		cout << "PreOrderTraverse:" << endl;
+		break;
+	case OrderBinaryTree::InOrder:
+		cout << endl;
+		cout << "InOrderTraverse:" << endl;
+		break;
+	case OrderBinaryTree::PostOrder:
+		cout << endl;
+		cout << "PostOrderTraverse:" << endl;
+		break;
+	default:
+		break;
+	}
+	orderRecurve(_obt.TreeSpace, 0, type);
+}
+
+void OrderBinaryTree::orderRecurve(TNode* tree,int index,OrderBinaryTree::TraverseType type)
+{
+	if (type == OrderBinaryTree::TraverseType::PreOrder)
+		cout << to_string(tree[index].globalOrder) + " ";
+
+	if (_obt.haveNode(index, NodeType::LeftChild))
+		orderRecurve(tree, 2 * index + 1,type);
+
+	if (type == OrderBinaryTree::TraverseType::InOrder)
+		cout << to_string(tree[index].globalOrder )+ " "; 
+
+	if(_obt.haveNode(index,NodeType::RightChild))
+		orderRecurve(tree, 2 * index+2,type);
+
+	if (type == OrderBinaryTree::TraverseType::PostOrder)
+		cout << to_string(tree[index].globalOrder) + " ";
 }
 
 //
-
  OrderBinaryTree* OrderBinaryTree::create(CreateInfo& info)
 {
 	OrderBinaryTree* obTree = new OrderBinaryTree();
