@@ -7,7 +7,7 @@ using namespace std;
 void OrderBinaryTree::debug()
 {
 	//Assume Data
-	OrderBinaryTree::CreateInfo info;
+	OrderBinaryTree::InitInfo info;
 	for (int i = 1; i <= 16; i++)
 	{
 		OrderBinaryTree::TNode node;
@@ -137,7 +137,7 @@ void OrderBinaryTree::orderRecurve(TNode* tree,int index,OrderBinaryTree::Traver
 }
 
 //
- OrderBinaryTree* OrderBinaryTree::create(CreateInfo& info)
+ OrderBinaryTree* OrderBinaryTree::create(InitInfo& info)
 {
 	OrderBinaryTree* obTree = new OrderBinaryTree();
 	if (obTree)
@@ -147,7 +147,7 @@ void OrderBinaryTree::orderRecurve(TNode* tree,int index,OrderBinaryTree::Traver
 	return NULL;
 };
 
-bool OrderBinaryTree::init(CreateInfo& info)
+bool OrderBinaryTree::init(InitInfo& info)
 {
 	_base.DB = VWDebug::getInstance();
 	return _obt.init(info.nodes);

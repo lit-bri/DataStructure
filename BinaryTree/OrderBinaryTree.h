@@ -1,5 +1,4 @@
 #include <vector>
-#pragma 
 #define INIT_SPACE_SIZE 100
 #define MAX_TREE_SIZE 100
 
@@ -286,14 +285,14 @@ public:
 		VWDebug* DB;
 	};
 
-	struct CreateInfo
+	struct InitInfo
 	{
 		std::vector<TNode> nodes;
 	};
 
-	static OrderBinaryTree* create(CreateInfo& info);
+	static OrderBinaryTree* create(InitInfo& info);
 
-	bool init(CreateInfo& info);
+	bool init(InitInfo& info);
 
 	OBTree _obt;
 	Base _base;
