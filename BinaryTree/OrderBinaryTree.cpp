@@ -6,7 +6,10 @@ using namespace std;
 //
 void OrderBinaryTree::debug()
 {
+	cout << "OrderBinaryTreeTest:" << endl;
+
 	//Assume Data
+	cout << "准备假定数据..." << endl;
 	OrderBinaryTree::InitInfo info;
 	for (int i = 1; i <= 16; i++)
 	{
@@ -66,14 +69,14 @@ void OrderBinaryTree::debug()
 			cout << endl;
 		}
 	}
-	_obt.getRootNode(node);
-	NodePosition pos;
-	pos.level = 3;
-	pos.orderInLevel = 3;
-	_obt.getNodeWithPosition(node,pos);
-	int result = _obt.getLeftChildNode(1001,node);
-	result = _obt.getLeftSubling(1001,node);
-	result = _obt.getRightChildNode(9, node);
+	//_obt.getRootNode(node);
+	//NodePosition pos;
+	//pos.level = 3;
+	//pos.orderInLevel = 3;
+	//_obt.getNodeWithPosition(node,pos);
+	//int result = _obt.getLeftChildNode(1001,node);
+	//result = _obt.getLeftSubling(1001,node);
+	//result = _obt.getRightChildNode(9, node);
 	orderTraverse(TraverseType::Level);
 	orderTraverse(TraverseType::PreOrder);
 	orderTraverse(TraverseType::InOrder);
@@ -137,7 +140,7 @@ void OrderBinaryTree::orderRecurve(TNode* tree,int index,OrderBinaryTree::Traver
 }
 
 //
- OrderBinaryTree* OrderBinaryTree::create(InitInfo& info)
+ OrderBinaryTree* OrderBinaryTree::create()
 {
 	OrderBinaryTree* obTree = new OrderBinaryTree();
 	if (obTree)

@@ -17,6 +17,7 @@ public:
 
 	enum TraverseType
 	{
+		LevelOrder,
 		PreOrder,
 		InOrder,
 		PostOrder
@@ -27,36 +28,38 @@ public:
 
 	};
 
+
+
+	struct CustomInfo
+	{
+		bool isNull = true;
+		int id;
+	};
+
 	struct InitInfo
 	{
 		std::vector<CustomInfo> info;
 	};
 
-	struct CustomInfo
-	{
-		bool isNull;
-		int id;
-	};
-
 	struct TNode
 	{
-		bool isNULL;
-		TNode* lchild=nullptr;
-		TNode* rchild=nullptr;
+		//Note:NULL为0;而nullptr用来表示空指针,不为0。if(nullptr)一定为true;
+		TNode* lchild=NULL;
+		TNode* rchild=NULL;
 		CustomInfo info;
 	};
 
 	struct CBTree
 	{
-		TNode* root =nullptr;
+		TNode* root =NULL;
 	};
 
 	//Test
-	void Test();
+	void debug();
 
 	//Traverse
 	void ChainTraverse(TraverseType type);
-	void ChainRecurce(TNode* node,TraverseType type);
+
 
 	//Get
 	ResultType		getRootNode(TNode& node);
@@ -70,13 +73,15 @@ public:
 	static ChainBinaryTree* create();
 
 	bool init(InitInfo& info);
-
-	void initRecurve(TNode* tree,std::vector<CustomInfo>& info,int index);
-
-	void clear();
+	
+	void clear(TNode* &node);
 
 	CBTree		 _cbt;
 	BaseInfo	_base;
+private:
+	void initRecurve(TNode* &tree, std::vector<CustomInfo>& info);
+
+	void ChainRecurve(TNode* &node, TraverseType type);
 };	
 
 #endif

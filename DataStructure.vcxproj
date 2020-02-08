@@ -147,9 +147,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="BinaryTree\ChainBinaryTree.cpp" />
     <ClCompile Include="BinaryTree\OrderBinaryTree.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BinaryTree\ChainBinaryTree.h" />
     <ClInclude Include="BinaryTree\OrderBinaryTree.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -290,7 +290,7 @@ public:
 		std::vector<TNode> nodes;
 	};
 
-	static OrderBinaryTree* create(InitInfo& info);
+	static OrderBinaryTree* create();
 
 	bool init(InitInfo& info);
 

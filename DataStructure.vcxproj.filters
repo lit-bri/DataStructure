@@ -18,9 +18,15 @@
     <ClCompile Include="BinaryTree\OrderBinaryTree.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="BinaryTree\ChainBinaryTree.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BinaryTree\OrderBinaryTree.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="BinaryTree\ChainBinaryTree.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
