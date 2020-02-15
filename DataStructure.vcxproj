@@ -149,12 +149,14 @@
   <ItemGroup>
     <ClCompile Include="BinaryTree\ChainBinaryTree.cpp" />
     <ClCompile Include="BinaryTree\OrderBinaryTree.cpp" />
-    <ClCompile Include="DirectedGraph\AdjacencyMatrixDigraph.cpp" />
+    <ClCompile Include="UndirectedGraph\AdjacencyListDigraph.cpp" />
+    <ClCompile Include="UndirectedGraph\AdjacencyMatrixDigraph.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BinaryTree\ChainBinaryTree.h" />
     <ClInclude Include="BinaryTree\OrderBinaryTree.h" />
-    <ClInclude Include="DirectedGraph\AdjacencyMatrixDigraph.h" />
+    <ClInclude Include="UndirectedGraph\AdjacencyListDigraph.h" />
+    <ClInclude Include="UndirectedGraph\AdjacencyMatrixDigraph.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

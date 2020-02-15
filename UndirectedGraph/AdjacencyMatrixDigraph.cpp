@@ -45,7 +45,7 @@ bool AdjacencyMatrixDigraph::init(InitInfo& info)
 			_amd.vers[i].info = info.versInfo[i];
 			for (int j = 0; j < size; j++)
 			{
-				_amd.eages[i][j] = info.eagesInfo[i][j];
+				_amd.eages[i][j] = (Eage)info.eagesInfo[i][j];
 			}
 		}
 		_amd.verNum = size;
@@ -59,7 +59,7 @@ bool AdjacencyMatrixDigraph::init(InitInfo& info)
 			_amd.vers[i].info = info.versInfo[i];
 			for (int j = 0; j < i+1; j++)
 			{
-				_amd.eages[j][i] = _amd.eages[i][j]= info.eagesInfo[i][j];
+				_amd.eages[j][i] = _amd.eages[i][j]= (Eage)info.eagesInfo[i][j];
 			}
 		}
 		_amd.verNum = size;

@@ -16,7 +16,11 @@ class AdjacencyMatrixDigraph
 {
 public:
 
-
+	enum EageType
+	{
+		UnEage = 0,
+		IsEage = 1
+	};
 	struct CustomInfo
 	{
 		int id;
@@ -25,14 +29,8 @@ public:
 	struct Vertex
 	{
 		CustomInfo info;
-	}
-
-
-	enum EageType
-	{
-		UnEage = 0,
-		IsEage = 1
 	};
+
 	struct Eage
 	{
 		int weight;
